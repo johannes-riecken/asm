@@ -1,0 +1,143 @@
+$zero 0 Constant zero
+$at 1 Reserved (assembler)
+$v0–$v1 2–3 Function result
+$a0–$a3 4–7 Function arguments
+$t0–$t7 8–15 Temporaries
+$s0–$s7 16–23 Saved yes
+$t8–$t9 24–25 Temporaries
+$k0–$k1 26-27 Reserved (OS)
+$gp 28 Global pointer yes
+$sp 29 Stack pointer yes
+$fp 30 Frame pointer yes
+$ra 31 Return address yes
+
+Arithmetic
+==========
+
+add Add
+addu Add unsigned
+sub Subtract
+subu Subtract unsigned
+slt Set on less than
+sltu Set on less than unsigned
+and AND
+or OR
+xor Exclusive OR
+nor NOR
+
+Arithmetic (immediate)
+======================
+
+addi Add immediate
+addiu Add immediate unsigned
+slti Set on l. t. immediate
+sltiu Set on less than unsigned
+andi AND immediate
+ori OR immediate
+xori Exclusive OR immediate
+lui Load upper immediate
+
+Shift Instructions
+==================
+
+sll Shift left logical
+srl Shift right logical
+sra Shift right arithmetic
+sllv Shift left logical variable
+srlv Shift right logical variable
+srav Shift right arith. variable
+
+Multiply/Divide
+===============
+
+mult Multiply
+multu Multiply unsigned
+div Divide
+divu Divide unsigned
+mfhi Move from HI
+mthi Move to HI
+mflo Move from LO
+mtlo Move to LO
+
+Load/Store Instructions
+=======================
+
+lb Load byte
+lbu Load byte unsigned
+lh Load halfword
+lhu Load halfword unsigned
+lw Load word
+lwl Load word left
+lwr Load word right
+sb Store byte
+sh Store halfword
+sw Store word
+swl Store word left
+swr Store word right
+
+Jump and Branch Instructions
+============================
+
+j Jump
+jal Jump and link
+jr Jump to register
+jalr Jump and link register
+beq Branch on equal
+bne Branch on not equal
+blez Branch on less than or equal to zero
+bgtz Branch on greater than zero
+bltz Branch on less than zero
+bgez Branch on greater than or equal to zero
+bltzal Branch on less than zero and link
+bgezal Branch on greter than or equal to zero and link
+
+Branch always b label → beq $0, $0, label
+Branch if equal
+zero
+beqz s, label → beq s, $0, label
+Branch greater or
+equal
+bge s, t, label → slt $1, s, t
+beq $1, $0, label
+Branch greater or
+equal unsigned
+bgeu s, t, label → sltu $1, s, t
+beq $1, $0, label
+Branch greater
+than
+bgt s, t, label → slt $1, t, s
+bne $1, $0, label
+Branch greater
+than unsigned
+bgtu s, t, label → sltu $1, t, s
+bne $1, $0, label
+Branch less than blt s, t, label → slt $1, s, t
+bne $1, $0, label
+Branch less than
+unsigned
+bltu s, t, label → sltu $1, s, t
+bne $1, $0, label
+
+Load immediate
+0 ≤ j ≤ 65535
+li d, j → ori d, $0, j
+Load immediate
+−32768 ≤ j < 0
+li d, j → addiu d, $0, j
+Load immediate li d, j → liu d, hi16(j)
+ori d, d, lo16(j)
+Move move d, s → or d, s, $0
+Multiply mul d, s, t → mult s, t
+mflo d
+Negate unsigned negu d, s → subu d, $0, s
+Set if equal seq d, s, t → xor d, s, t
+sltiu d, d, 1
+Set if greater or
+equal
+sge d, s, t → slt d, s, t
+xori d, d, 1
+Set if greater or
+equal unsigned
+sgeu d, s, t → sltu d, s, t
+xori d, d, 1
+Set if greater than sgt d, s, t → slt d, t, s
