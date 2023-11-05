@@ -1,0 +1,4 @@
+info register
+RDI 0000555555556088 | .`UUUU.. | => x/s $rdi "/home/jo/csharp/coreclr/Tools/dotnetcli/host"
+x/s $rdi
+b *main+132

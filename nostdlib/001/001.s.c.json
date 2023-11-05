@@ -1,0 +1,38 @@
+{
+	"architecture" : 
+	{
+		"bitSize" : 32,
+		"name" : "unknown"
+	},
+	"classes" : [],
+	"date" : "2018-09-19",
+	"decompParams" : 
+	{
+		"abiPaths" : [],
+		"frontEndOutputFile" : "",
+		"frontendFunctions" : [],
+		"keepAllFuncs" : false,
+		"libraryTypeInfoPaths" : [],
+		"outputFile" : "",
+		"selectedDecodeOnly" : false,
+		"selectedFunctions" : [],
+		"selectedNotFoundFncs" : [],
+		"selectedRanges" : [],
+		"staticSignPaths" : [],
+		"userStaticSignPaths" : [],
+		"verboseOut" : false
+	},
+	"fileFormat" : "unknown",
+	"fileType" : "unknown",
+	"functions" : [],
+	"globals" : [],
+	"inputFile" : "",
+	"languages" : [],
+	"patterns" : [],
+	"registers" : [],
+	"segments" : [],
+	"structures" : [],
+	"time" : "17:30:11",
+	"tools" : [],
+	"vtables" : []
+}
